@@ -1,0 +1,77 @@
+
+<div class="bootstrap-wrapper" >
+    <div class="container">
+         <div class="row" style="margin-top:20px;">
+            <div class=" col-md-6 offset-md-3">
+                <div class="container text-center logo-style">
+                   <img  class="" src="../../../assets/online.png" alt="nothing to show">               
+                </div>
+                <h1 class="text-center">Registration here !</h1>
+                <div class="container">
+                    <!-- {{user|json}} -->  
+                    <!-- make  sure to impoer form module into app.module.ts file it will summti the forme -->
+                    <form (ngSubmit)="formSubmit()" class="example-form " >
+
+                        <!-- user field -->
+                        <!--[(ngModel)]="user.userName" this will bind the fild with user model of ts file  -->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>UserName</mat-label>
+                            <input 
+                            [(ngModel)]="user.userName"
+                            name="userName"
+                            matInput>
+                          </mat-form-field>
+
+                         <!-- first name -->
+                          <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input
+                            [(ngModel)]="user.firstName"
+                            name="firstName"
+                            matInput>
+                          </mat-form-field>
+                          <!-- last naeme -->
+                          <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Last Name</mat-label>
+                            <input 
+                            [(ngModel)]="user.lastName"
+                            name="lastName"
+                            matInput>
+                         </mat-form-field>
+                            <!-- passsword field -->
+                         <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input type="password"
+                            [(ngModel)]="user.password"
+                            name="password"
+                            matInput>
+                          </mat-form-field>
+                         
+                           <!-- email filel -->
+                          <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input type="email"
+                            [(ngModel)]="user.email"
+                            name="email"
+                            matInput>
+                          </mat-form-field>
+                           <!-- Phone field -->
+                          <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Phone Number</mat-label>
+                            <input type="number"
+                            [(ngModel)]="user.phone"
+                            name="phone"
+                            matInput>
+                          </mat-form-field>
+                          
+                          <div class="container text-center">
+                            <button mat-raised-button class="full-width" color="accent">Submit</button>
+                            
+                          </div>
+                        
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
