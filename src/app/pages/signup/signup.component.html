@@ -3,6 +3,7 @@
     <div class="container">
          <div class="row" style="margin-top:20px;">
             <div class=" col-md-6 offset-md-3">
+              <mat-card>
                 <div class="container text-center logo-style">
                    <img  class="" src="../../../assets/online.png" alt="nothing to show">               
                 </div>
@@ -20,6 +21,7 @@
                             [(ngModel)]="user.userName"
                             name="userName"
                             matInput>
+                            <mat-hint>UserName must be uniqe !!</mat-hint>
                           </mat-form-field>
 
                          <!-- first name -->
@@ -71,6 +73,7 @@
                         
                       </form>
                 </div>
+              </mat-card>
             </div>
         </div>
     </div>

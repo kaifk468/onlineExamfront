@@ -11,12 +11,21 @@ import {FormsModule} from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +36,13 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     MatInputModule,
     MatButtonModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
     
-
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,3 +9,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     width: 100px;
     height: 100px;
 }
+.text-center{
+    text-align: center;
+}
+.ml20{
+    margin-left: 20px;
+}
+.mr20{
+    margin-right: 20px;
+}
+.mt20{
+    margin-top: 20;
+}
+.mb20{
+    margin-bottom: 20px;
+}

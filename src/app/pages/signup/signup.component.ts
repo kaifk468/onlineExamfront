@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
+import { MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService:UserService,private snack:MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -34,6 +37,36 @@ export class SignupComponent implements OnInit {
   formSubmit()
   {
     alert('im  woking');
-    console.log(this.user);
+    if(this.user.userName=='' || this.user.userName==null)
+    {
+      this.snack.open('UserName can"t be empty !! ', 'Undo', {
+        duration: 3000
+      });
+    }
+    //console.log(this.user);
+
+      //calling the createUser form usreService class to send the post req to backend
+      this.userService.createUser(this.user).subscribe({
+      next: (data:any) =>{
+        console.log(data)
+        Swal.fire({
+          icon: 'success',
+          title: 'Successfully Registerd !!',
+          text: `${data.userName} Registered !`,
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+
+      } ,
+      
+      error: (e) =>{
+        console.error(e);
+        this.snack.open('Something went wrong !!', 'Undo', {
+          duration: 3000,
+        });
+      },
+    }
+      
+    )
+
   }
 }
