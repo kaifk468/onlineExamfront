@@ -3,13 +3,26 @@
       <a mat-icon-button routerLink="/" class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu_book</mat-icon>
       </a>
-      <span>ExamPortal</span>
+      <span>ExamPortal</span> 
       <span class="example-spacer"></span>
-      <a  routerLink="/login" mat-icon-button  aria-label="Example icon-button with heart icon">
+      
+      <a *ngIf="!loginService.isLoggedIn()"
+       routerLink="/login" mat-icon-button  aria-label="Example icon-button with heart icon">
         <span class=" mr20">LogIn</span>
       </a>
-      <a mat-icon-button routerLink="/signup" class=" mr20 ml20" aria-label="Example icon-button with share icon">
+     
+      <a *ngIf="!loginService.isLoggedIn()"
+      mat-icon-button routerLink="/signup" class=" mr20 ml20" aria-label="Example icon-button with share icon">
         <span class=" mr20 ">SignUp</span>
       </a>
+      <a *ngIf="loginService.isLoggedIn()" (click)="logOut()"
+      mat-icon-button routerLink="/login" class=" mr20 ml20" aria-label="Example icon-button with share icon">
+        <span class=" mr20 mr20 ">LogOut</span>
+      </a>
+      <span *ngIf="loginService.isLoggedIn()" class=" ml20">{{loginService.getUser().username}}</span>
+      <!-- <a *ngIf="loginService.isLoggedIn()"
+      routerLink="/login" mat-icon-button  aria-label="Example icon-button with heart icon">
+       <span *ngIf="loginService.isLoggedIn()" class=" mr20">{{loginService.getUser().username}}</span>
+     </a> -->
     </mat-toolbar>
   </p>
