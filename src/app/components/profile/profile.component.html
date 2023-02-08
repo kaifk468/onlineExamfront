@@ -1,0 +1,55 @@
+<mat-card>
+  <h1>
+    Your Profile Details
+  </h1>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="container text-center">
+          <img 
+            src="../../../assets/online.png"
+             alt="img"
+            class="image"
+            />
+            <h2>{{user.firstName}} {{user.lastName}}</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <table class="table text-center">
+              <tr>
+                <td>Username
+                </td>
+                <td>kaif123</td>
+              </tr>
+              <tr>
+                <td>Email
+                </td>
+                <td>{{role}}</td>
+              </tr>
+              <tr>
+                <td>Role
+                </td>
+                <td>{{role}}</td>
+              </tr>
+              <tr>
+                <td>Phone
+                </td>
+                <td>{{user.phone}}</td>
+              </tr>
+              <tr>
+                <td>Active
+                </td>
+                <td>{{user.enabled}}</td>
+              </tr>
+
+            </table>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-card-actions class="text-center">
+      <button mat-raised-button color="accent">Update</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

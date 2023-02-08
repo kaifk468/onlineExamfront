@@ -40,11 +40,12 @@ export class LoginComponent implements OnInit {
               console.log(userData);
               //now we can redirect based on the Role
               let userRole=this.loginservice.getUserRole();
+              this.loginservice.loginStatusSubject.next(true); //this will inform all its suscriber
               if(userRole=='Normal')///redirection to Normal User Page
               {
                 this.router.navigate(['normal-dashboard']);
               }
-              else if(userRole=='ADMIN')
+              else if(userRole=='Admin')
               {
                 
                 this.router.navigate(['admin-dashboard']);

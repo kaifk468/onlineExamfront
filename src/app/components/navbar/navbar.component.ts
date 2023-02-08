@@ -8,6 +8,8 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class NavbarComponent implements OnInit {
 
+  isLoggedIn:boolean=false;
+  user:any=null;
   constructor(public loginService:LoginService) { }
 
   public logOut()
@@ -17,6 +19,13 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loginService.loginStatusSubject.asObservable().subscribe(
+      (data)=>{
+        console.log(`this is subject change ${data}`)
+        this.isLoggedIn=this.loginService.isLoggedIn();
+        this.user=this.loginService.getUser();
+      }
+    )
   }
 
 }

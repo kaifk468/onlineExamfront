@@ -1,6 +1,15 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from './components/profile/profile.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { AddQuizesComponent } from './pages/admin/add-quizes/add-quizes.component';
+import { AdminwelcomeComponent } from './pages/admin/adminwelcome/adminwelcome.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { ViewQuizQuestionComponent } from './pages/admin/view-quiz-question/view-quiz-question.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NormalDashboardComponent } from './pages/normal-dashboard/normal-dashboard.component';
@@ -28,14 +37,56 @@ const routes: Routes = [
   {
     path:'normal-dashboard',
     component:NormalDashboardComponent,
-    pathMatch:'full',
-    canActivate:[NormalGuard]
+    canActivate:[NormalGuard],
+    children:[
+      {
+        path:'profile',
+        component:ProfileComponent
+      }
+    ]
   },
   {
     path:'admin-dashboard',
     component:AdminDashboardComponent,
-    pathMatch:'full',
-    canActivate:[AdminGuard]
+    canActivate:[AdminGuard],
+    children:[
+      {
+        path:'',
+        component:AdminwelcomeComponent
+      },
+      {
+        path:'profile',
+        component:ProfileComponent
+      },
+      {
+        path:'categories',
+        component:ViewCategoriesComponent
+      },
+      {
+        path:'add_category',
+        component:AddCategoriesComponent
+      },
+      {
+        path:'quizzes',
+        component:ViewQuizzesComponent
+      },
+      {
+        path:'add_quiz',
+        component:AddQuizesComponent
+      },
+      {
+        path:'update-quiz/:id',
+        component:UpdateQuizComponent
+      },
+      {
+        path:'view-quiz-question/:id/:title',
+        component:ViewQuizQuestionComponent
+      },
+      {
+        path:'add-quiz-question/:quizId/:quizTitle',
+        component:AddQuestionComponent
+      }
+    ]
 
   }
 ];

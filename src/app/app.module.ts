@@ -21,6 +21,20 @@ import { HomeComponent } from './pages/home/home.component';
 import { AuthInterceptorProviders } from './services/interceptors/auth.interceptor';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { NormalDashboardComponent } from './pages/normal-dashboard/normal-dashboard.component';
+import {MatListModule} from '@angular/material/list';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AdminwelcomeComponent } from './pages/admin/adminwelcome/adminwelcome.component';
+import {MatTableModule} from '@angular/material/table';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { AddQuizesComponent } from './pages/admin/add-quizes/add-quizes.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggle, MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuizQuestionComponent } from './pages/admin/view-quiz-question/view-quiz-question.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +44,17 @@ import { NormalDashboardComponent } from './pages/normal-dashboard/normal-dashbo
     NavbarComponent,
     HomeComponent,
     AdminDashboardComponent,
-    NormalDashboardComponent
+    NormalDashboardComponent,
+    SidebarComponent,
+    ProfileComponent,
+    AdminwelcomeComponent,
+    ViewCategoriesComponent,
+    AddCategoriesComponent,
+    ViewQuizzesComponent,
+    AddQuizesComponent,
+    UpdateQuizComponent,
+    ViewQuizQuestionComponent,
+    AddQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +70,10 @@ import { NormalDashboardComponent } from './pages/normal-dashboard/normal-dashbo
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    
+    MatListModule,
+    MatTableModule,
+    MatSelectModule,
+    MatSlideToggleModule,
     
   ],
   providers: [AuthInterceptorProviders],

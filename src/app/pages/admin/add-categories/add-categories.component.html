@@ -1,0 +1,48 @@
+
+<div class="bootstrap-wrapper" >
+    <div class="container">
+         <div class="row" style="margin-top:20px;">
+            <div class=" col-md-6 offset-md-3">
+              <mat-card>
+                <div class="container text-center logo-style">
+                   <img  class="" src="../../../assets/online.png" alt="nothing to show">               
+                </div>
+                <h1 class="text-center">Add new Category here !</h1>
+                <div class="container">
+                    <!-- {{user|json}} -->  
+                    <!-- make  sure to impoer form module into app.module.ts file it will summti the forme -->
+                    <form #addCategoryForm="ngForm" (ngSubmit)="addCategory(addCategoryForm)">
+
+                        <!-- user field -->
+                        <!--[(ngModel)]="user.userName" this will bind the fild with user model of ts file  -->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Title</mat-label>
+                            <input 
+                            [(ngModel)]="category.title"
+                            name="title"
+                            matInput>
+                            <mat-hint>Title must be uniqe !!</mat-hint>
+                          </mat-form-field>
+
+                         <!-- first name -->
+                          <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <textarea  
+                            [(ngModel)]="category.description"
+                            name="description" 
+                            rows="4" 
+                            matInput></textarea>
+                           
+                          </mat-form-field>     
+                          <div class="container text-center">
+                            <button mat-raised-button class="full-width" color="accent">Submit</button>
+                            
+                          </div>
+                        
+                      </form>
+                </div>
+              </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

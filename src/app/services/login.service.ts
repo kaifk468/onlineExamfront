@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/internal/Subject';
 import baseUrl from './helper';
 
 @Injectable({
@@ -9,7 +10,8 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
-
+  public loginStatusSubject=new Subject<boolean>();//this subject will notify all its suscribers 
+                                                    //when its value get change
   //generate Token : this method will request backend for token
   public generateToken(user:any)
   {

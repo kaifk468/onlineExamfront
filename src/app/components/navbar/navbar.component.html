@@ -6,20 +6,20 @@
       <span>ExamPortal</span> 
       <span class="example-spacer"></span>
       
-      <a *ngIf="!loginService.isLoggedIn()"
+      <a *ngIf="!isLoggedIn"
        routerLink="/login" mat-icon-button  aria-label="Example icon-button with heart icon">
         <span class=" mr20">LogIn</span>
       </a>
      
-      <a *ngIf="!loginService.isLoggedIn()"
+      <a *ngIf="!isLoggedIn"
       mat-icon-button routerLink="/signup" class=" mr20 ml20" aria-label="Example icon-button with share icon">
         <span class=" mr20 ">SignUp</span>
       </a>
-      <a *ngIf="loginService.isLoggedIn()" (click)="logOut()"
+      <a *ngIf="isLoggedIn" (click)="logOut()"
       mat-icon-button routerLink="/login" class=" mr20 ml20" aria-label="Example icon-button with share icon">
         <span class=" mr20 mr20 ">LogOut</span>
       </a>
-      <span *ngIf="loginService.isLoggedIn()" class=" ml20">{{loginService.getUser().username}}</span>
+      <span *ngIf="isLoggedIn && user!=null" class=" ml20">{{user.username}}</span>
       <!-- <a *ngIf="loginService.isLoggedIn()"
       routerLink="/login" mat-icon-button  aria-label="Example icon-button with heart icon">
        <span *ngIf="loginService.isLoggedIn()" class=" mr20">{{loginService.getUser().username}}</span>
