@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
               this.loginservice.loginStatusSubject.next(true); //this will inform all its suscriber
               if(userRole=='Normal')///redirection to Normal User Page
               {
-                this.router.navigate(['normal-dashboard']);
+                this.router.navigate(['normal-dashboard/0']);
               }
               else if(userRole=='Admin')
               {

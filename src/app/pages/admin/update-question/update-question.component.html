@@ -2,7 +2,7 @@
 <div class="bootstrap-wrapper">
     <div class="row">
         <div class="col-md-12">
-            <h1>Adding Question of {{quizTitle}}</h1>
+            <h1>Updating Question</h1>
             <mat-card>
                 <mat-card-header>
                     <mat-card-subtitle>
@@ -11,26 +11,13 @@
                     </mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                    <form #questionForm="ngForm" (ngSubmit)="addQuestion(questionForm)">
-                        <!-- <mat-form-field class="full-width">
+                    <form #questionForm="ngForm" (ngSubmit)="updateQuestion(questionForm)">
+                        <mat-form-field class="full-width">
                             <mat-label>Write question content</mat-label>
                             <textarea [(ngModel)]="question.content"
                             name="content"
                             row="18" matInput placeholder="Enter your Question"></textarea>
-                        </mat-form-field> -->
-                        <!-- <ckeditor 
-                        [editor]="Editor" 
-                        name="editor"
-                        [(ngModel)]="question.content"
-                        data="<p>Write Your Question</p>">
-                       </ckeditor> -->
-                       <!-- <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor> -->
-                       <editor 
-                       name="content"
-                       [(ngModel)]="question.content"
-                       [init]="{ plugins: 'lists link image table code help wordcount' }"
-                     ></editor>
-
+                        </mat-form-field>
                         <div class="row">
                             <div class="col-md-6">
                                 <!-- option 1 -->
@@ -82,7 +69,7 @@
                                 <mat-option *ngIf="question.option4" [value]="question.option4">{{question.option4}}</mat-option>
                             </mat-select>
                         </mat-form-field>
-                        <button mat-raised-button color="primary">Add Question</button>
+                        <button mat-raised-button color="primary">Update</button>
                     </form>
                 </mat-card-content>
             </mat-card>

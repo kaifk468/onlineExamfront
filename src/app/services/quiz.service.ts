@@ -24,13 +24,24 @@ export class QuizService {
   {
     return this.http.get(`${baseUrl}/quiz/${quizId}`);
   }
-  //get all quizs
+  //get all quizs both active and inactive
   public getQuizzes()
   {
     return this.http.get(`${baseUrl}/quiz/`);
+  } 
+
+  //get all active quizzes
+  public getAllActiveQuizzes()
+  {
+    return this.http.get(`${baseUrl}/quiz/active`)
+  }
+  //get Quizes of specific category
+  public getQuizByCategory(categoryId:any)
+  {
+    return this.http.get(`${baseUrl}/quiz/category/${categoryId}`)
   }
 
-  //delete category
+  //delete quiz
   public deleteQuiz(quizId:any)
   {
     return this.http.delete(`${baseUrl}/quiz/${quizId}`);

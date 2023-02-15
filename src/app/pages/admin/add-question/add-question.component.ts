@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 @Component({
   selector: 'app-add-question',
@@ -15,7 +17,7 @@ export class AddQuestionComponent implements OnInit {
               private questionService:QuestionService,
 
     ) { }
-
+  public Editor=ClassicEditor;
   quizId:any;
   quizTitle:any;
   question={
@@ -24,6 +26,7 @@ export class AddQuestionComponent implements OnInit {
     "option2":"",
     "option3":"",
     "option4":"",
+
     "answer":"",
     "quiz":{
         "id":""

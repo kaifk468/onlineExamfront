@@ -32,9 +32,14 @@
                         </div>
                     </div>
                     <mat-divider></mat-divider>
-                    <p><b>Correct Ans:</b>{{q.answer}}</p>
+                    <p><b>Correct Ans: </b>{{q.answer}}</p>
                 </div>
             </mat-card-content>
+            <mat-card-actions class="text-center">
+                <button (click)="deleteQuestion(q.id)" mat-button color="warn">Delete</button>
+                <button [routerLink]="'/admin-dashboard/update-question/'+q.id" 
+                mat-button color="accent">Update</button>
+            </mat-card-actions>
           </mat-card>
         </div>
     </div>

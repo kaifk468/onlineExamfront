@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuestionService } from 'src/app/services/question.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-quiz-question',
@@ -36,6 +37,23 @@ export class ViewQuizQuestionComponent implements OnInit {
         console.log(e);
       }
     })
+  }
+
+  public deleteQuestion(id:any)
+  {
+    console.log(id);
+    this.questionService.deleteQuestionById(id).subscribe({
+      next:(data)=>{
+        console.log(data);
+        //this.question=data;
+        Swal.fire('Deleted..','Question Deleted Succesfully','success')
+        this.question=this.question.filter((questions:any)=>questions.id!=id);
+      },
+      error:(e)=>{
+        console.log(e);
+      }
+    })
+
   }
 
 

@@ -35,6 +35,16 @@ import {MatSlideToggle, MatSlideToggleModule} from '@angular/material/slide-togg
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewQuizQuestionComponent } from './pages/admin/view-quiz-question/view-quiz-question.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { UserSideBarComponent } from './pages/normal/user-side-bar/user-side-bar.component';
+import { LoadQuizComponent } from './pages/normal/load-quiz/load-quiz.component';
+import { PreQuizInstructionComponent } from './pages/normal/pre-quiz-instruction/pre-quiz-instruction.component';
+import { StartQuizComponent } from './pages/normal/start-quiz/start-quiz.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatRadioModule} from '@angular/material/radio';
+import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -54,7 +64,12 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
     AddQuizesComponent,
     UpdateQuizComponent,
     ViewQuizQuestionComponent,
-    AddQuestionComponent
+    AddQuestionComponent,
+    UpdateQuestionComponent,
+    UserSideBarComponent,
+    LoadQuizComponent,
+    PreQuizInstructionComponent,
+    StartQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +89,14 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
     MatTableModule,
     MatSelectModule,
     MatSlideToggleModule,
-    
+    CKEditorModule,
+    EditorModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true
+    }),
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]

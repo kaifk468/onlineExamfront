@@ -1,0 +1,104 @@
+<div class="bootstrap-wrapper">
+ <div class="container-fluid" *ngIf="!isSubmited">
+    <div class="row">
+        <div class="col-md-2">
+          <h3>Instruction!</h3>
+        </div>
+        <div class="col-md-8">
+           <ng-container *ngIf="questions.length>0">
+            <h1>On Going Quiz <b>{{questions[0].quiz.title}}</b></h1>
+           </ng-container>
+           <mat-card *ngFor="let q of questions; let i=index" class="mt10">
+                <mat-card-content>
+              
+                    <p><b>Q  {{i+1}}) </b> <span [innerHTML]="q.content"></span></p>
+                    <mat-divider></mat-divider>
+                    <mat-radio-group name="{{i}}" [(ngModel)]="q.givenAnswer">
+                        <div class="row mt20">
+                            <div class="col-md-6">
+                                <mat-radio-button [value]="q.option1" >{{q.option1}}</mat-radio-button>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-radio-button [value]="q.option2" >{{q.option2}}</mat-radio-button>
+                            </div>
+                        </div>
+                        <div class="row mt20">
+                            <div class="col-md-6">
+                                <mat-radio-button [value]="q.option3" >{{q.option3}}</mat-radio-button>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-radio-button [value]="q.option4" >{{q.option4}}</mat-radio-button>
+                            </div>
+                        </div>
+                        
+                        
+                      </mat-radio-group>
+                      
+                    <!-- <div class="row mt20">
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option1" name="{{i}}" [(ngModel)]="q.givenAnswer">&nbsp;{{q.option1}}
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option2" name="{{i}}" [(ngModel)]="q.givenAnswer">&nbsp;{{q.option2}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option3" name="{{i}}" [(ngModel)]="q.givenAnswer" >&nbsp;{{q.option3}}
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option4" name="{{i}}" [(ngModel)]="q.givenAnswer">&nbsp;{{q.option4}}
+                        </div>
+                    </div> -->
+                </mat-card-content>
+                
+           </mat-card>
+           <div class="mt20 text-center">
+            <button (click)="onQuizSubmit()" mat-raised-button color="warn">Submit</button>
+           </div>
+        </div>
+        <div class="col-md-2">
+            <!-- progress bar -->
+            <mat-card>
+                <mat-card-content >
+                    <div class="text-center">
+                        <p>Time Remaining</p>
+                        <p><b>{{timeFormetter()}}</b></p>
+                        <mat-spinner 
+                        mode="determinate"
+                        [value]="((avilableTime*100)/totalTime)"
+                        color="accent"
+                        style="margin:auto">
+                    </mat-spinner></div>
+                    
+                </mat-card-content>
+            </mat-card>
+           
+        </div>
+    </div>
+ </div>
+</div>
+
+<div class="bootstrap-wrapper">
+    <div class="container-fluid" *ngIf="isSubmited">
+       <div class="row">
+           <div class="col-md-12 text-center">
+              <mat-card  class="mt10">
+                   <mat-card-content>
+                    <h1 class="text-center">Your Result</h1>
+                    <p><b>Question attempted :</b>{{totalAttempted}}</p>
+                    <p><b>Correct ans :</b>{{correctAns}}</p>
+                    <p><b>Your Score :</b>{{totalMarks}}</p>
+                   </mat-card-content>
+                   
+              </mat-card>
+              <div class="mt20 text-center">
+               <button  mat-stroked-button color="primary">Print</button>
+               <button routerLink="/normal-dashboard/0" class="ml10" mat-stroked-button color="warn">Home</button>
+              </div>
+           </div>
+
+       </div>
+    </div>
+   </div>

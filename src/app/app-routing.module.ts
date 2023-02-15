@@ -6,6 +6,7 @@ import { AddCategoriesComponent } from './pages/admin/add-categories/add-categor
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { AddQuizesComponent } from './pages/admin/add-quizes/add-quizes.component';
 import { AdminwelcomeComponent } from './pages/admin/adminwelcome/adminwelcome.component';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { ViewQuizQuestionComponent } from './pages/admin/view-quiz-question/view-quiz-question.component';
@@ -13,6 +14,9 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NormalDashboardComponent } from './pages/normal-dashboard/normal-dashboard.component';
+import { LoadQuizComponent } from './pages/normal/load-quiz/load-quiz.component';
+import { PreQuizInstructionComponent } from './pages/normal/pre-quiz-instruction/pre-quiz-instruction.component';
+import { StartQuizComponent } from './pages/normal/start-quiz/start-quiz.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AdminGuard } from './services/guards/admin.guard';
 import { NormalGuard } from './services/guards/normal.guard';
@@ -42,6 +46,14 @@ const routes: Routes = [
       {
         path:'profile',
         component:ProfileComponent
+      },
+      {
+        path:':id',
+        component:LoadQuizComponent
+      },
+      {
+        path:'instruction/:id',
+        component:PreQuizInstructionComponent
       }
     ]
   },
@@ -85,9 +97,17 @@ const routes: Routes = [
       {
         path:'add-quiz-question/:quizId/:quizTitle',
         component:AddQuestionComponent
+      },
+      {
+        path:'update-question/:id',
+        component:UpdateQuestionComponent
       }
     ]
 
+  },
+  {
+    path:'start-quiz/:id',
+    component:StartQuizComponent
   }
 ];
 
