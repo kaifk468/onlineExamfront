@@ -1,0 +1,35 @@
+name: Angular Build and Docker Push
+
+on:
+  push:
+    branches:
+      - master # Change this to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14 # You can change the Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Angular app
+      run: npm run build
+
+    - name: Build and push docker image
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: kaifk468/online-exam-front
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{secrets.DOCKER_USERNAME}}
+        password: ${{secrets.DOCKER_PASSWORD}}
